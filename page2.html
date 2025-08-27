@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <form align="center" id="appointmentForm">
+<div class="form-container">
+
+
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name"><br>
+  
+      <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age" min="1"><br>
+    
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    
+    <label for="phone">Phone:</label><br>
+    <input type="tel" id="phone" name="phone"><br>
+    
+    <label for="gender">Gender:</label><br>
+    <select id="gender" name="gender">
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+</form> 
+</body>
+</html>
+</div>
+</div>
+
+
+<script>
+
+    function getQueryParams() {
+        const params = new URLSearchParams(window.location.search);
+        return {
+            name: params.get('name'),
+            email: params.get('email')
+            age: params.get('age')
+            phone: params.get('phone')
+            gender: params.get('gender')
+            
+        };
+    }
+
+
+    window.onload = function() {
+        const queryParams = getQueryParams();
+        if (queryParams.name) {
+            document.getElementById('name').value = queryParams.name;
+        }
+        if (queryParams.email) {
+            document.getElementById('email').value = queryParams.email;
+            if (queryParams.age) {
+                document.getElementById('age').value = queryParams.email;
+                if (queryParams.phone) {
+                    document.getElementById('phone').value = queryParams.email;
+                    if (queryParams.gender) {
+                        document.getElementById('gender').value = queryParams.email;
+        }
+
+
+         // Add an event listener for the form's submit event
+         document.getElementById("appointmentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from actually submitting
+            
+            // Show alert message after clicking the submit button
+            alert("Form submitted successfully!");
+    };
+    
+</script>
+</body>
+</html>
